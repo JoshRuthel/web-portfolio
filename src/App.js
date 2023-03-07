@@ -30,19 +30,16 @@ function App() {
   const [menuClick, setMenuClick] = useState(false)
 
   const handleClick = () => {
-    document.getElementById("welcome").classList.remove('hidden')
     closeClicked()
     aboutRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
   const handleSkillClick = () => {
-    document.getElementById("welcome").classList.remove('hidden')
     closeClicked()
     skillsRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
   const handleProjectClick = () => {
-    document.getElementById("welcome").classList.remove('hidden')
     closeClicked()
     projectRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
   };
@@ -50,15 +47,13 @@ function App() {
   const menuClicked = () => {
     setMenuClick(true)
     document.getElementById("nav").classList.remove('top-[-100%]')
-    document.getElementById("nav").classList.add('top-[4%]')
-    document.getElementById("welcome").classList.add('hidden')
+    document.getElementById("nav").classList.add('top-[10%]')
   }
 
   const closeClicked = () => {
     setMenuClick(false)
-    document.getElementById("nav").classList.remove('top-[4%]')
+    document.getElementById("nav").classList.remove('top-[10%]')
     document.getElementById("nav").classList.add('top-[-100%]')
-    document.getElementById("welcome").classList.remove('hidden')
   }
 
   const topClicked = () => {
@@ -72,8 +67,8 @@ function App() {
           <div>
             <img src={logo} class="w-20" alt="logo"></img>
           </div>
-          <div id="nav" class="md:static md:min-h-fit absolute mt-3 min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 bg-black">
-            <ul class="flex md:flex-row flex-col md:items-center  md:gap-[4vw] gap-8">
+          <div id="nav" class="md:static md:min-h-fit absolute min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-right px-5">
+            <ul class="flex md:flex-row flex-col md:items-center  md:gap-[4vw] gap-2">
               <div class="flex flex-row">{menuClick && <AccessibilityOutline color={'#ffffff'} width="13px"/>} <a class={navButton} onClick={handleClick}>
                 About
               </a></div>
@@ -120,7 +115,7 @@ function App() {
               </div>
         </nav>
       </div>
-      <div id="welcome" ref={welcomeRef}><Welcome /></div>
+      <div ref={welcomeRef}><Welcome /></div> 
       <div ref={aboutRef}>
         <About />
       </div>
@@ -133,6 +128,7 @@ function App() {
       <div>
         <Bottom topClicked={topClicked}/>
       </div>
+      
     </Card>
   );
 }
