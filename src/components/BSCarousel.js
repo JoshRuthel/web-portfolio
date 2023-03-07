@@ -5,7 +5,7 @@ import { CodeSlashSharp } from 'react-ionicons'
 function BSCarousel() {
   return (
     <div class="flex justify-center">
-    <div class="md:w-[50%] w-[70%] my-20">
+    <div class="md:w-[50%] w-[90%] my-20">
         <div class="flex justify-center mt-20 mb-10">
         <h2 class="text-3xl text-white animate-bounce">My Projects</h2>
         </div>

@@ -46,7 +46,8 @@ const Layers = (props) => {
             stroke={"white"}
             strokeWidth={4}
             onPointerOver={handleBotHover}
-            onClick={handleBotHover}
+            onTap={handleBotHover}
+            onDblTap={handleBotHover}
             opacity={layerOpacity.back}
             onPointerLeave={() => {setBotLayerFill("white");  setLayerOpacity(prevState => ({
               ...prevState,
@@ -70,7 +71,8 @@ const Layers = (props) => {
             stroke={"white"}
             strokeWidth={4}
             onPointerOver={handleMidHover}
-            onClick={handleMidHover}
+            onTap={handleMidHover}
+            onDblTap={handleMidHover}
             onPointerOut={() => {setMidLayerFill("white");  setLayerOpacity(prevState => ({
               ...prevState,
               tools: 0.5
@@ -94,7 +96,8 @@ const Layers = (props) => {
             stroke={"white"}
             strokeWidth={4}
             onPointerOver={handleTopHover}
-            onClick={handleTopHover}
+            onTap={handleTopHover}
+            onDblTap={handleTopHover}
             onPointerOut={() => {setTopLayerFill("white");  setLayerOpacity(prevState => ({
               ...prevState,
               front: 0.5
