@@ -64,7 +64,7 @@ function BSCarousel() {
                     The codebase includes the TailwindCSS library amongst others
                   </p>
                   <div class="bg-orange-500 rounded-xl flex justify-center">
-                    <a>
+                    <a href="https://github.com/JoshRuthel/web-portfolio">
                       <CodeSlashSharp
                         color={"#00000"}
                         height="25px"
