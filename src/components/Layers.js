@@ -39,8 +39,6 @@ const Layers = (props) => {
       front: 0.5
     })); 
     props.setFront(false)
-    toolUnHover();
-    backUnHover();
   }
 
   const toolUnHover = () => {
@@ -49,22 +47,38 @@ const Layers = (props) => {
       tools: 0.5
     })); 
     props.setTool(false)
-    frontUnHover();
-    backUnHover();
   }
 
   const backUnHover = () => {
-    setBotLayerFill("white");  setLayerOpacity(prevState => ({
+    setBotLayerFill("white");  
+    setLayerOpacity(prevState => ({
       ...prevState,
       back: 0.5
     })); 
     props.setBack(false)
-    frontUnHover();
-    toolUnHover();
+  }
+
+  if(props.filt === "Front-End" && props.mobile && topLayerFill != "indigo") {
+    console.log('Top')
+    handleTopHover()
+  } else if(topLayerFill != "white" && props.filt != "Front-End") {
+    frontUnHover()
+  }
+
+  if(props.filt === "Tools" && props.mobile && midLayerFill != "indigo") {
+    handleMidHover()
+  } else if(midLayerFill != "white" && props.filt != "Tools") {
+    toolUnHover()
+  }
+
+  if(props.filt === "Back-End" && props.mobile && botLayerFill != "indigo") {
+    handleBotHover()
+  } else if(botLayerFill != "white" && props.filt != "Back-End") {
+    backUnHover()
   }
 
   return (
-      <Stage width={window.innerWidth/1.8} height={window.innerHeight / 1.5}>
+    <Stage width={window.innerWidth/1.8} height={window.innerHeight / 1.5}>
         <Layer>
           <Ellipse
             x={window.innerWidth / 2 - 0.32*window.innerWidth}
@@ -76,8 +90,6 @@ const Layers = (props) => {
             stroke={"white"}
             strokeWidth={4}
             onPointerOver={handleBotHover}
-            onTap={handleBotHover}
-            onDblTap={handleBotHover}
             opacity={layerOpacity.back}
             onPointerLeave={backUnHover}
           />
@@ -98,8 +110,6 @@ const Layers = (props) => {
             stroke={"white"}
             strokeWidth={4}
             onPointerOver={handleMidHover}
-            onTap={handleMidHover}
-            onDblTap={handleMidHover}
             onPointerOut={toolUnHover}
             opacity={layerOpacity.tools}
           />
@@ -120,8 +130,6 @@ const Layers = (props) => {
             stroke={"white"}
             strokeWidth={4}
             onPointerOver={handleTopHover}
-            onTap={handleTopHover}
-            onDblTap={handleTopHover}
             onPointerOut={frontUnHover}
             opacity={layerOpacity.front}
           />
@@ -134,6 +142,7 @@ const Layers = (props) => {
           />
         </Layer>
       </Stage>
+      
   );
 };
 

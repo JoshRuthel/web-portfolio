@@ -6,7 +6,7 @@ function About() {
     <div class="flex flex-col w-[80%] mx-auto">
         <AnimatedOnScroll animationIn="fadeIn" animationOut="fadeOut">
       <div class="flex justify-center md:mt-10">
-        <h1 class="text-3xl text-white font-bold text-shadow animate-bounce mt-10">
+        <h1 class="text-3xl text-white font-bold text-shadow animate-bounce mt-8">
           A short introduction...
         </h1>
       </div>
