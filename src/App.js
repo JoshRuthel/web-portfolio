@@ -47,12 +47,12 @@ function App() {
   const menuClicked = () => {
     setMenuClick(true)
     document.getElementById("nav").classList.remove('top-[-100%]')
-    document.getElementById("nav").classList.add('top-[10%]')
+    document.getElementById("nav").classList.add('top-[7%]')
   }
 
   const closeClicked = () => {
     setMenuClick(false)
-    document.getElementById("nav").classList.remove('top-[10%]')
+    document.getElementById("nav").classList.remove('top-[7%]')
     document.getElementById("nav").classList.add('top-[-100%]')
   }
 
@@ -67,7 +67,7 @@ function App() {
           <div>
             <img src={logo} class="w-20" alt="logo"></img>
           </div>
-          <div id="nav" class="md:static md:min-h-fit absolute min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-right px-5">
+          <div id="nav" class="md:static md:min-h-fit absolute min-h-[30vh] left-0 top-[-100%] md:w-auto w-full flex items-right px-5 bg-black">
             <ul class="flex md:flex-row flex-col md:items-center  md:gap-[4vw] gap-2">
               <div class="flex flex-row">{menuClick && <AccessibilityOutline color={'#ffffff'} width="13px"/>} <a class={navButton} onClick={handleClick}>
                 About
