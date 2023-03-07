@@ -46,9 +46,9 @@ const Skills = () => {
             <h2 class="text-black shadow-xl md:text-2xl text-md">
               Apps are like onions, they have layers
             </h2>
-            <h2 class="text-black shadow-xl md:text-2xl text-md">
-              Hover over/Tap one to see my skills
-            </h2>
+            {isMobile ? <h2 class="text-black shadow-xl md:text-2xl text-md">Select one from the dropdown to see my skills
+            </h2> : <h2 class="text-black shadow-xl md:text-2xl text-md">Hover over one with the cursor to see my skills
+            </h2>}
             <div class="flex justify-center mt-2 md:hidden mx-auto">
           <div class="flex flex-col bg-indigo-500 rounded-xl">
       <ul>

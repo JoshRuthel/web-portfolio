@@ -58,24 +58,26 @@ const Layers = (props) => {
     props.setBack(false)
   }
 
-  if(props.filt === "Front-End" && props.mobile && topLayerFill != "indigo") {
+ if(props.mobile) {
+  if(props.filt === "Front-End" && topLayerFill != "indigo") {
     console.log('Top')
     handleTopHover()
   } else if(topLayerFill != "white" && props.filt != "Front-End") {
     frontUnHover()
   }
 
-  if(props.filt === "Tools" && props.mobile && midLayerFill != "indigo") {
+  if(props.filt === "Tools" && midLayerFill != "indigo") {
     handleMidHover()
   } else if(midLayerFill != "white" && props.filt != "Tools") {
     toolUnHover()
   }
 
-  if(props.filt === "Back-End" && props.mobile && botLayerFill != "indigo") {
+  if(props.filt === "Back-End" && botLayerFill != "indigo") {
     handleBotHover()
   } else if(botLayerFill != "white" && props.filt != "Back-End") {
     backUnHover()
   }
+ }
 
   return (
     <Stage width={window.innerWidth/1.8} height={window.innerHeight / 1.5}>

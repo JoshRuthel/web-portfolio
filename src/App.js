@@ -27,6 +27,8 @@ function App() {
   const navButton =
     "text-white rounded-xl px-3 py-1 hover:bg-indigo-500 hover:text-black cursor-pointer";
 
+  const [menuClick, setMenuClick] = useState(false)
+
   const handleClick = () => {
     document.getElementById("welcome").classList.remove('hidden')
     closeClicked()
@@ -44,8 +46,6 @@ function App() {
     closeClicked()
     projectRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
   };
-
-  const [menuClick, setMenuClick] = useState(false)
 
   const menuClicked = () => {
     setMenuClick(true)
