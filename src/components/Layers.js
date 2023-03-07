@@ -33,6 +33,36 @@ const Layers = (props) => {
     props.setBack(true)
   };
 
+  const frontUnHover = () => {
+    setTopLayerFill("white");  setLayerOpacity(prevState => ({
+      ...prevState,
+      front: 0.5
+    })); 
+    props.setFront(false)
+    toolUnHover();
+    backUnHover();
+  }
+
+  const toolUnHover = () => {
+    setMidLayerFill("white");  setLayerOpacity(prevState => ({
+      ...prevState,
+      tools: 0.5
+    })); 
+    props.setTool(false)
+    frontUnHover();
+    backUnHover();
+  }
+
+  const backUnHover = () => {
+    setBotLayerFill("white");  setLayerOpacity(prevState => ({
+      ...prevState,
+      back: 0.5
+    })); 
+    props.setBack(false)
+    frontUnHover();
+    toolUnHover();
+  }
+
   return (
       <Stage width={window.innerWidth/1.8} height={window.innerHeight / 1.5}>
         <Layer>
@@ -49,10 +79,7 @@ const Layers = (props) => {
             onTap={handleBotHover}
             onDblTap={handleBotHover}
             opacity={layerOpacity.back}
-            onPointerLeave={() => {setBotLayerFill("white");  setLayerOpacity(prevState => ({
-              ...prevState,
-              back: 0.5
-            })); props.setBack(false)}}
+            onPointerLeave={backUnHover}
           />
           <Text
             text={"Back-End"}
@@ -73,10 +100,7 @@ const Layers = (props) => {
             onPointerOver={handleMidHover}
             onTap={handleMidHover}
             onDblTap={handleMidHover}
-            onPointerOut={() => {setMidLayerFill("white");  setLayerOpacity(prevState => ({
-              ...prevState,
-              tools: 0.5
-            })); props.setTool(false)}}
+            onPointerOut={toolUnHover}
             opacity={layerOpacity.tools}
           />
           <Text
@@ -98,10 +122,7 @@ const Layers = (props) => {
             onPointerOver={handleTopHover}
             onTap={handleTopHover}
             onDblTap={handleTopHover}
-            onPointerOut={() => {setTopLayerFill("white");  setLayerOpacity(prevState => ({
-              ...prevState,
-              front: 0.5
-            })); props.setFront(false)}}
+            onPointerOut={frontUnHover}
             opacity={layerOpacity.front}
           />
           <Text
