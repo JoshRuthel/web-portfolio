@@ -14,7 +14,7 @@ function Welcome() {
           </div>
           <div>
             <h1 class="text-white text-3xl md:text-4xl text-bold">
-              Welcome to my page webpage
+              Welcome to my webpage
             </h1>
           </div>
         </div>

@@ -17,7 +17,6 @@ const Skills = () => {
   useEffect(() => {
     if(window.innerWidth < 700) {
       setIsMobile(true)
-      console.log('Here')
     }
   }, [])
 
